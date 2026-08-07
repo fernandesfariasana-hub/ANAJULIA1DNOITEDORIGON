@@ -1,4 +1,130 @@
-<!doctype html>
-<html ⚡ lang="pt-br">
+<!DOCTYPE html> <!-- Informa ao navegador que o documento utiliza HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
 
- 
+<head> <!-- Contém informações da página que não aparecem no conteúdo -->
+    <meta charset="UTF-8"> <!-- Permite utilizar caracteres especiais como ç, á, é etc. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Faz a página se adaptar a celulares -->
+    <title>Blog</title> <!-- Título exibido na aba do navegador -->
+
+    <style> <!-- Início do CSS -->
+        header { /* Estiliza o cabeçalho */
+            background-color: #183C63; /* Cor de fundo azul */
+            color: #FFFFFF; /* Cor do texto branca */
+            text-align: center; /* Centraliza o texto */
+            max-width: 800px; /* Largura máxima de 800px */
+            margin: 0 auto; /* Centraliza o bloco na página */
+            padding: 16px; /* Espaçamento interno */
+        }
+
+        main { /* Estiliza a área principal da página */
+            background-color: #FFFFFF; /* Fundo branco */
+            color: #183C63; /* Cor do texto azul */
+            max-width: 800px; /* Limita a largura */
+            margin: 0 auto; /* Centraliza a área principal */
+            padding: 16px; /* Espaçamento interno */
+        }
+
+        article { /* Estiliza cada postagem */
+            display: flex; /* Coloca imagem e texto lado a lado */
+        }
+
+        img { /* Estiliza todas as imagens */
+            width: 80px; /* Largura da imagem */
+            height: 80px; /* Altura da imagem */
+        }
+
+        .artigo-autor { /* Estiliza os elementos da classe artigo-autor */
+            font-weight: bold; /* Deixa o texto em negrito */
+        }
+    </style> <!-- Fim do CSS -->
+</head>
+
+<body> <!-- Início do conteúdo visível da página -->
+
+    <header> <!-- Cabeçalho da página -->
+        <h1>Meu blog tech</h1> <!-- Título principal -->
+        <p>Vou compartilhar conhecimentos sobre tecnologia e programação</p> <!-- Descrição do blog -->
+    </header>
+
+    <main> <!-- Área principal da página -->
+
+        <article> <!-- Primeiro artigo -->
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+                <!-- Exibe uma imagem e o atributo alt descreve a imagem para acessibilidade -->
+
+            <div> <!-- Agrupa as informações do artigo -->
+                <h2>Meu primeiro post</h2> <!-- Título do artigo -->
+                <p class="artigo-autor">Por: Stanlley Leandro</p> <!-- Nome do autor -->
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p> <!-- Texto do artigo -->
+
+                <button>❤️ <span>0</span></button> <!-- Botão de coração com contador -->
+                <button>👍 <span>0</span></button> <!-- Botão de curtida com contador -->
+            </div>
+        </article>
+
+        <article> <!-- Segundo artigo -->
+            <img src="imagem-blog.png"
+                alt="Logotipo conceitual de tecnologia e educação: um livro aberto de onde emerge um cérebro digital brilhante, cercado por ícones de Wi-Fi, circuitos e lâmpada de ideia. Cores em tons de azul e branco.">
+
+            <div>
+                <h2>Meu segundo post</h2> <!-- Título do segundo artigo -->
+                <p class="artigo-autor">Por: MStanlley Leandro</p> <!-- Autor -->
+                <p>Boas-vindas ao meu novo blog! Aqui vou compartilhar dicas de programação e curiosidades da área de tecnologia.</p> <!-- Texto -->
+
+                <button>❤️ <span>0</span></button> <!-- Botão de favorito -->
+                <button>👍 <span>0</span></button> <!-- Botão de curtida -->
+            </div>
+        </article>
+
+    </main> <!-- Fim da área principal -->
+
+</body> <!-- Fim do conteúdo da página -->
+
+<script> // Início do JavaScript
+
+    const botoes = document.querySelectorAll("button");
+    // Seleciona todos os botões da página e guarda em uma lista.
+
+    botoes.forEach(function (botao) {
+        // Percorre todos os botões, um por um.
+
+        let curtiu = false;
+        // Cria uma variável para controlar se ESTE botão já foi clicado.
+
+        botao.addEventListener("click", botaoClicado);
+        // Sempre que o botão for clicado, executa a função botaoClicado.
+
+        function botaoClicado() {
+            // Função responsável pelo clique.
+
+            console.log("fui clicado");
+            // Exibe a mensagem no Console do navegador (F12).
+
+            let texto = botao.querySelector("span");
+            // Procura o elemento <span> dentro do botão, onde está o número.
+
+            if (curtiu === false){
+                // Verifica se o botão ainda não estava curtido.
+
+                texto.textContent++;
+                // Soma 1 ao número mostrado no botão.
+
+                curtiu = true;
+                // Marca que agora o botão está curtido.
+
+            } else{
+                // Caso já estivesse curtido.
+
+                texto.textContent--;
+                // Diminui 1 do contador.
+
+                curtiu = false;
+                // Marca que o botão não está mais curtido.
+            }
+        }
+    });
+
+</script> <!-- Fim do JavaScript -->
+
+</html> <!-- Fim do documento HTML -->
